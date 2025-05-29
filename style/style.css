@@ -1,0 +1,251 @@
+@import "./color.css";
+
+:root {
+    /* Font Families */
+    --font-heading: "Quicksand", sans-serif;
+    --font-body: "Open Sans", sans-serif; /* Optional fallback */
+    --font-mono: "Roboto Mono", monospace; /* For temperatures */
+
+    /* Font Sizes - Mobile First */
+    --text-xs: 0.75rem; /* 12px - Captions */
+    --text-sm: 0.875rem; /* 14px - Secondary text */
+    --text-base: 1rem; /* 16px - Body text */
+    --text-md: 1.125rem; /* 18px - UI elements */
+    --text-lg: 1.25rem; /* 20px - Subheaders */
+    --text-xl: 1.5rem; /* 24px - Card titles */
+    --text-2xl: 1.75rem; /* 28px - Section headers */
+    --text-3xl: 2.5rem; /* 32px - Main title */
+
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+    /* Semantic Colors */
+    --color-bg: var(--color-picton-blue);
+    --color-text: var(--color-white);
+    --color-text-secondary: rgba(255, 255, 255, 0.826);
+    --color-primary: var(--color-lapis-lazuli);
+    --color-primary-hover: hsl(199, 100%, 25%);
+    --color-secondary: var(--color-steel-blue);
+    --color-accent: var(--color-cerulean);
+    --color-card: var(--color-prussian-blue);
+    --color-border: var(--color-cerulean);
+    --color-focus-ring: hsla(197, 100%, 45%, 0.3);
+    --color-btn: rgb(113, 178, 203);
+}
+
+body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+    background: linear-gradient(
+        170deg,
+        var(--color-picton-blue) 50%,
+        var(--color-prussian-blue) 100%
+    );
+    padding: var(--space-md);
+    margin: 0;
+    user-select: none;
+}
+
+h1,
+h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+}
+
+h1 {
+    font-size: var(--text-3xl);
+    color: var(--color-white);
+}
+
+h2 {
+    font-size: var(--text-2xl);
+    color: var(--color-white);
+}
+
+.app-header {
+    margin-bottom: var(--space-xl);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    height: fit-content;
+}
+
+.location-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--space-xl);
+    border: 1px solid var(--color-border);
+    padding: var(--space-lg);
+}
+
+.location-options {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.location-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    min-width: 250px;
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    background: var(--color-secondary);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.location-option:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.option-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--color-btn);
+    color: var(--color-text-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.city-form {
+    width: 80%;
+    position: relative;
+    margin-top: var(--space-sm);
+}
+
+.city-dropdown {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    background-color: var(--color-btn);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    font-weight: bold;
+}
+
+.city-dropdown:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-border);
+}
+
+.city-dropdown:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.city-form::after {
+    content: "▼";
+    font-size: 0.8rem;
+    color: var(--color-text);
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.city-dropdown option {
+    background-color: var(--color-card);
+    color: var(--color-text);
+    padding: var(--space-sm);
+}
+
+/* Disabled default option styling */
+.city-dropdown option:disabled {
+    color: var(--color-text);
+}
+
+.weather-display {
+    visibility: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .city-dropdown {
+        font-size: var(--text-base);
+        padding: var(--space-xs) var(--space-sm);
+    }
+    .location-options {
+        flex-direction: column;
+    }
+
+    .location-option {
+        min-width: 100%;
+    }
+
+    .weather-current {
+        flex-direction: column;
+        text-align: center;
+    }
+}

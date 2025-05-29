@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Weather forecast app with location detection" />
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="./style/style.css" /> 
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="app-title">☀️Weather Forecast💨</h1> 
+    </header>
+
+    <main class="app-container">
+        <!-- Location Selection Section -->
+        <section class="location-selection" aria-labelledby="location-heading">
+            <h2 id="location-heading">Choose Location Method</h2> 
+            
+            <div class="location-options">
+                <!-- Option 1: IP Detection -->
+                <article class="location-option"> 
+                    <p class="option-description">
+                        Use your IP address to detect your approximate location.
+                    </p>
+                    <button class="btn btn--ip-detection" aria-label="Detect location via IP">
+                        Detect via IP
+                    </button>
+                </article>
+
+                <!-- Option 2: Geolocation -->
+                <article class="location-option">
+                    <p class="option-description">
+                        Use browser geolocation for precise coordinates (requires permission).
+                    </p>
+                    <button class="btn btn--geolocation" aria-label="Detect location via geolocation">
+                        Use Geolocation
+                    </button>
+                </article>
+
+                <!-- Option 3: Manual City Selection -->
+                <article class="location-option last">
+                    <p class="option-description">
+                        Select a city manually:
+                    </p>
+                    <form class="city-form" aria-label="City selection form">
+                        <select 
+                            name="city" 
+                            class="city-dropdown" 
+                            aria-label="Select a city"
+                        >
+                            <option value="" disabled selected>Select a city...</option>
+                            <!-- Options will be populated via JavaScript -->
+                        </select>
+                    </form>
+                </article>
+            </div>
+        </section>
+
+        <!-- Weather Display Section (Hidden Initially) -->
+        <section class="weather-display" aria-labelledby="weather-heading">
+            <h2 id="weather-heading" class="weather-city-name">Tehran</h2> <!-- Dynamic city name -->
+            <time class="weather-time" datetime="2023-11-01T12:00">Now</time>
+            
+            <div class="weather-current">
+                <div class="weather-temperature">24°C</div>
+                <img 
+                    class="weather-icon" 
+                    src="assets/icons/sunny.svg" 
+                    alt="Sunny" 
+                    width="64" 
+                    height="64"
+                >
+                <p class="weather-condition">Sunny</p>
+            </div>
+
+            <!-- Hourly Forecast -->
+            <div class="weather-hourly">
+                <h3>Hourly Forecast</h3>
+                <div class="hourly-container"></div> <!-- Filled via JS -->
+            </div>
+
+            <!-- 7-Day Forecast -->
+            <div class="weather-daily">
+                <h3>7-Day Forecast</h3>
+                <div class="daily-container"></div> <!-- Filled via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
