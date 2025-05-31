@@ -2,7 +2,7 @@
     /* CSS HSL */
     --color-white: hsla(0, 0%, 100%, 1);
     --color-rich-black: hsla(195, 100%, 6%, 1);
-    --color-prussian-blue: hsla(205, 100%, 17%, 1);
+    --color-prussian-blue: rgba(154, 106, 249, 0.604);
     --color-cerulean: hsla(195, 100%, 33%, 1);
     --color-picton-blue: hsla(197, 100%, 45%, 1);
     --color-pale-blue: hsla(197, 87%, 72%, 0.459);

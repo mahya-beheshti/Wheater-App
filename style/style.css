@@ -62,7 +62,7 @@ body {
     line-height: var(--leading-normal);
     color: var(--color-text);
     background: linear-gradient(
-            170deg,
+            180deg,
             var(--color-picton-blue) 50%,
             var(--color-prussian-blue) 100%
         )
