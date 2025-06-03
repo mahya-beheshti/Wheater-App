@@ -11,9 +11,6 @@ const elements = {
     currentTemp: document.querySelector(".temp"),
     weatherHourly: document.querySelector(".weather-hourly"),
     hourlyContainer: document.querySelector(".hourly-container"),
-    hourlyHour: document.querySelector(".hourly-hour"),
-    hourlyIcon: document.querySelector(".hourly-icon"),
-    hourlyTemp: document.querySelector(".hourly-temp"),
     weatherDaily: document.querySelector(".weather-daily"),
     dailyContainer: document.querySelector(".daily-container"),
 };
@@ -125,8 +122,8 @@ async function setUpDropdown() {
         const locationData = await getCityByIP();
         if (!locationData) {
             state.currentCity = "Tehran";
-            state.currentLat = 35.6892;
-            state.currentLon = 51.389;
+            state.currentLat = 35.699603;
+            state.currentLon = 51.337984;
         } else {
             state.currentLat = locationData.latitude;
             state.currentLon = locationData.longitude;
@@ -146,6 +143,13 @@ async function setUpDropdown() {
 
             if (city.capital === state.currentCity) {
                 option.selected = true;
+            }
+        });
+        elements.cityDropdown.value = state.currentCity;
+
+        elements.cityDropdown.addEventListener("click", function () {
+            if (this.value === state.currentCity) {
+                dropdownhandler({ target: this });
             }
         });
 
@@ -181,6 +185,8 @@ function showError(er) {
 async function showWeather() {
     elements.weatherDisplay.classList.add("active");
     elements.cityName.textContent = state.currentCity;
+    console.log('hey');
+    
     const dailyUrl = `${apiConfig.weatherApiBaseUrl}/forecast.json?key=${apiConfig.weatherApiKey}&q=${state.currentCity}&days=7`;
     const hourlyUrl = `${apiConfig.weatherApiBaseUrl}/forecast.json?key=${apiConfig.weatherApiKey}&q=${state.currentCity}&days=2`;
     try {
@@ -232,7 +238,7 @@ function updateHourlyForecast(data) {
             const hourTime = new Date(hour.time);
             return hourTime >= now;
         })
-        .slice(0, 24);
+        .slice(0, 48);
 
     elements.weatherHourly.innerHTML = "";
 
@@ -275,6 +281,4 @@ function updateDailyForecast(data) {
         elements.weatherDaily.appendChild(dayElement);
     });
 }
-
 setUp();
-

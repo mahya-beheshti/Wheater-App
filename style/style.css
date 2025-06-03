@@ -246,13 +246,16 @@ h2 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: var(--space-sm);
+}
+
+.weather-city-name {
+    margin-bottom: -1rem;
 }
 
 .weather-temperature {
     display: flex;
-    padding-left: 0.2rem;
     padding-right: 2rem;
+    margin-left: -1.2rem;
 }
 
 .temp {
@@ -288,22 +291,31 @@ h2 {
     border-radius: 4px;
 }
 
+.weather-icon {
+    width: 80px;
+    height: 80px;
+}
+
 .hourly-container {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: var(--space-sm);
+    padding: var(--space-xs);
     background-color: var(--color-pale-blue);
     border-radius: var(--radius-sm);
-    margin: var(--space-sm) var(--space-xs);
+    margin: var(--space-xs) var(--space-xs);
     flex: 0 0 auto;
     min-width: 80px;
 }
 .hourly-hour {
     font-size: var(--text-xs);
-    padding-bottom: var(--space-sm);
+    /* padding-bottom: var(--space-sm); */
     color: var(--color-text-secondary);
+    margin-bottom: -0.5rem;
+}
+.hourly-temperature{
+    margin-top: -0.3rem;
 }
 
 .weather-daily {
@@ -322,10 +334,11 @@ h2 {
     flex-direction: row;
     align-items: center;
     min-width: 30vw;
-    padding: var(--space-sm);
+    padding: -var(--space-sm) 0;
     background-color: var(--color-pale-blue);
     border-radius: var(--radius-sm);
-    margin: var(--space-sm) var(--space-xs);}
+    margin: var(--space-xs) var(--space-xs);
+}
 
 .day {
     padding-left: var(--space-md);
@@ -338,7 +351,7 @@ h2 {
     margin-left: auto;
     padding-right: var(--space-xs);
 }
-.daily-temp{
+.daily-temp {
     padding-right: var(--space-md);
 }
 /* Responsive adjustments */
