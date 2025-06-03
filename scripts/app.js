@@ -23,9 +23,9 @@ const state = {
 };
 
 const apiConfig = {
-    weatherApiKey: "2b861464434e44c9be3112858253105",
+    weatherApiKey: "<YOUR_WEATHERAPI_KEY>",
     geoApiUrl:
-        "https://ipgeolocation.abstractapi.com/v1/?api_key=d1ee88e611cb49c8a474a08af5d2deae&ip_address=94.177.73.27",
+        "https://ipgeolocation.abstractapi.com/v1/?api_key=alsoApiKey&ip_address=94.177.73.27",
     weatherApiBaseUrl: `http://api.weatherapi.com/v1`,
 };
 
